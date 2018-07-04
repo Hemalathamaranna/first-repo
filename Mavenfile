@@ -1,19 +1,23 @@
-node{
-  stage ('Build') {
- 
-    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project/tree/master/demo-1'
- 
-    withMaven(
-        // Maven installation declared in the Jenkins "Global Tool Configuration"
-        maven: 'M3',
-        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
-        // Maven settings and global settings can also be defined in Jenkins Global Tools Configuration
-        mavenSettingsConfig: 'my-maven-settings',
-        mavenLocalRepo: '.~/opt') {
- 
-      // Run the maven build
-      sh "mvn clean install"
- 
-    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
-  }
+pipeline {
+    agent any
+    tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
+            }
+        }
+
+        stage ('Build') {
+            steps {
+                echo 'This is a minimal pipeline.'
+            }
+        }
+    }
 }
