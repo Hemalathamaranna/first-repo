@@ -1,7 +1,7 @@
 node{
   stage ('Build') {
  
-    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project/tree/master/demo-1'
  
     withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
