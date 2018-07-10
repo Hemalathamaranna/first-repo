@@ -1,13 +1,17 @@
-import jenkins.automation.builders.PipelineJobBuilder
-
-def script = """
-    pipeline {
-        agent any
-        stages {
-            stage('hello') {
-                steps {
-                    sh 'echo "Hello World"'
-                }
-            }
-        }
+#!/usr/bin/env groovy
+/**
+        * ReqA Class description
+ */
+import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
+node {
+def PROJECT_NAME = "Hema"
+    stage ('Build')
+    {
+        echo "HI HEMA!! Welcome to Jenkins"
     }
+}
