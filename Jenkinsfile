@@ -1,7 +1,13 @@
-node {
+import jenkins.automation.builders.PipelineJobBuilder
 def PROJECT_NAME = "Hema"
-    stage ('Build')
-    {
-        echo "HI HEMA!! Welcome to Jenkins"
+def script = """
+    pipeline {
+        agent { label 'master' }
+        stages {
+            stage('hello') {
+                steps {
+                    sh 'echo "Hello World"'
+                }
+            }
+        }
     }
-}
