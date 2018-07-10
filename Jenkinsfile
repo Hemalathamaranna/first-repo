@@ -2,7 +2,7 @@ import jenkins.automation.builders.PipelineJobBuilder
 
 def script = """
     pipeline {
-        agent { label 'master' }
+        agent any
         stages {
             stage('hello') {
                 steps {
